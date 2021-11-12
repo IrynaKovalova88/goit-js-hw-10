@@ -14,17 +14,20 @@ export function fetchCountries(name) {
         throw Error(response.error);
     })
         .then(country => {
+            countryInfo.innerHTML = "";
+            countryList.innerHTML = "";
             if (country.length > 10) {
-                Notify.info("Too many matches found. Please enter a more specific name.")
+                Notify.info("Too many matches found. Please enter a more specific name.");
             }
             else if (country.length > 1) {
                 countryList.innerHTML = country.map(countryItem => { return countryListHbs(countryItem) }).join('');
                 countryInfo.innerHTML = "";
-            } else {
+            }
+            else {
                 countryInfo.innerHTML = countryInfoHbs(...country);
                 countryList.innerHTML = "";
             }
-    })
+        })
     .catch(error => {
         Notify.failure("Oops, there is no country with that name");
         countryInfo.innerHTML = "";

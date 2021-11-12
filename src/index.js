@@ -8,8 +8,8 @@ const input = document.querySelector('#search-box');
 
 input.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 
-function onInput() {
-    const name = input.value.trim();
+function onInput(e) {
+    const name = e.target.value.trim();
   if (!name) {
     countryInfo.innerHTML = "";
     countryList.innerHTML = "";
