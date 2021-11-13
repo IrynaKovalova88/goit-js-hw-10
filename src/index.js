@@ -22,8 +22,8 @@ function onInput(e) {
 }
 
 function countryLength(country) {
-        countryInfo.innerHTML = "";
-  countryList.innerHTML = "";
+    countryInfo.innerHTML = "";
+    countryList.innerHTML = "";
   if (!country) {
     return;
   }
